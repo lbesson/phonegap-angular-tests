@@ -18,6 +18,8 @@
     Distributed under the GPLv3
   </license>
 
+  <preference name="phonegap-version" value="2.1.0" />
+
   <feature name="http://api.phonegap.com/1.0/geolocation" />
   <feature name="http://api.phonegap.com/1.0/network" />
   <feature name="http://api.phonegap.com/1.0/file" />

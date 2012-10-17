@@ -3,20 +3,20 @@
   <head>
     <title>Capture Photo</title>
 
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript">
 
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value 
 
-    // Wait for PhoneGap to connect with the device
+    // Wait for Cordova to connect with the device
     //
     document.addEventListener("deviceready",onDeviceReady,false);
 
-    // PhoneGap is ready to be used!
+    // Cordova is ready to be used!
     //
     function onDeviceReady() {
-        alert('ready');
+        alert('device is ready');
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
     }
@@ -65,14 +65,16 @@
     //
     function capturePhoto() {
       // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI });
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        destinationType: destinationType.DATA_URL });
     }
 
     // A button will call this function
     //
     function capturePhotoEdit() {
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
     }
 
     // A button will call this function
